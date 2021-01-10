@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ships: [],
+      mosters: [],
       searchField: "",
     };
   }
@@ -17,7 +17,7 @@ class App extends Component {
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      .then((users) => this.setState({ ships: users }));
+      .then((users) => this.setState({ mosters: users }));
   }
 
   handleChange = (e) => {
@@ -25,17 +25,17 @@ class App extends Component {
   };
 
   render() {
-    const filteredShips = this.state.ships.filter((ship) =>
-      ship.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+    const filteredMosters = this.state.mosters.filter((moster) =>
+      moster.name.toLowerCase().includes(this.state.searchField.toLowerCase())
     );
 
     return (
       <div className="App">
         <SearchBox
-          placeHolder="search for ships"
+          placeHolder="search for mosters"
           handleChange={this.handleChange}
         />
-        <CardList ships={filteredShips} />
+        <CardList mosters={filteredMosters} />
       </div>
     );
   }

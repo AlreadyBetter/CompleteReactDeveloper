@@ -7,8 +7,8 @@ import "./CardList.css";
 export const CardList = (props) => {
   return (
     <div className="card-list">
-      {props.ships.map((ship) => (
-        <Card key={ship.id} ship={ship} />
+      {props.mosters.map((moster) => (
+        <Card key={moster.id} moster={moster} />
       ))}
     </div>
   );
